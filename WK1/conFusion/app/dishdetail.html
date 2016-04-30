@@ -44,13 +44,13 @@
                 </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
-                <p> <font size="+2">Customer comments </font> Sort by: <input type="text"></p>
+                <p> <font size="+2">Customer comments </font> Sort by: <input type="text" ng-model='ctrl.filterText' ng-change='ctrl.inputChanged()'></p>
                 <p>
-                    <blockquote ng-repeat='comments in ctrl.dish.comments'>
+                    <blockquote ng-repeat='comments in ctrl.dish.comments | orderBy:ctrl.predicate'>
                       <p>{{comments.rating}} Stars</p>
                       <p>{{comments.comment}}</p>
                       <footer>{{comments.author}}, {{comments.date | date:'MMM. dd, y':'+8:00'}}</footer>
-                    </blockquote>                
+                    </blockquote>
                 </p>
             </div>
         </div>
@@ -108,6 +108,13 @@
             
             this.dish = dish;
             
+            this.filterText = '';            
+            this.inputChanged = function() {
+                var correctFilters = ['author', '-author', 'date', '-date', 'rating', '-rating' ]
+                if(correctFilters.indexOf(this.filterText) > -1) {
+                    this.predicate = this.filterText;
+                }
+            };       
         });
 
     </script>
