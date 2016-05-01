@@ -56,6 +56,15 @@
                 </p>
             </div>
             <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+                <p>
+                    <blockquote ng-show="!commentForm.$pristine && !commentForm.$invalid">
+                    <p>{{newComment.rating}} Stars</p>
+                    <p>{{newComment.comment}}</p>
+<!--                    <footer>{{newComment.author}}, {{comments.date | date:'MMM. dd, y':'+8:00'}}</footer>-->
+                    <footer>{{newComment.author}}</footer>
+                    </blockquote>
+                </p>
+
                     <!--<ul class="list-unstyled">
 						<p>Task 3: Here you include the code to show the live preview of the comment</p>
 						<p>The comment should be shown only when the form contains valid
@@ -69,7 +78,7 @@
                                class="form-control" 
                                name="name"
                                placeholder="Enter Your Name" 
-                               ng-model="newComment.name" 
+                               ng-model="newComment.author" 
                                required>
                         <span ng-show="commentForm.name.$invalid" class="help-block">Please Enter Your Name</span>
                     </p>
@@ -78,7 +87,7 @@
                         <label class="radio-inline" data-ng-repeat="i in [1, 2, 3, 4, 5]">
                             <input type="radio" 
                                    name="rating" 
-                                   ng-model="newComment.numOfStars" 
+                                   ng-model="newComment.rating" 
                                    value="{{i}}"/>
                             {{i}}
                         </label>
@@ -88,7 +97,7 @@
                         <textarea class="form-control" 
                                   rows="10" 
                                   name="comments"
-                                  ng-model="newComment.comments" 
+                                  ng-model="newComment.comment" 
                                   required>
                         </textarea>
                         <span ng-show="commentForm.comments.$invalid" class="help-block">Please Enter Comments</span>
