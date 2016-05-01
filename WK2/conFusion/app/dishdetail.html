@@ -64,7 +64,7 @@
                 <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
 					<!--<p>Task 1: Design the form to submit the comments</p>-->
                     <label class="col-sm-2 control-label">Your Name</label>
-                    <p class="col-sm-10">
+                    <p class="col-sm-10" ng-class="{'has-error has-feedback' : commentForm.name.$invalid}">
                         <input type="text" 
                                class="form-control" 
                                name="name"
@@ -84,7 +84,7 @@
                         </label>
                     </p>
                     <label class="col-sm-2 control-label text-nowrap">Your Comments</label>
-                    <p class="col-sm-10">
+                    <p class="col-sm-10" ng-class="{'has-error has-feedback' : commentForm.comments.$invalid}">
                         <textarea class="form-control" 
                                   rows="10" 
                                   name="comments"
