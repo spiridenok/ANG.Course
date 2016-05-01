@@ -65,20 +65,39 @@
 					<!--<p>Task 1: Design the form to submit the comments</p>-->
                     <label class="col-sm-2 control-label">Your Name</label>
                     <p class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Your Name" ng-model="newComment.name">
+                        <input type="text" 
+                               class="form-control" 
+                               name="name"
+                               placeholder="Enter Your Name" 
+                               ng-model="newComment.name" 
+                               required>
+                        <span ng-show="commentForm.name.$error.required && commentForm.name.$pristine" class="help-block">Please Enter Your Name</span>
                     </p>
                     <label class="col-sm-2 control-label text-nowrap">Number of Stars</label>
                     <p class="col-sm-10">
                         <label class="radio-inline" data-ng-repeat="i in [1, 2, 3, 4, 5]">
-                            <input type="radio" name="rating" ng-model="newComment.numOfStars" value="{{i}}"/>{{i}}
+                            <input type="radio" 
+                                   name="rating" 
+                                   ng-model="newComment.numOfStars" 
+                                   value="{{i}}"/>
+                            {{i}}
                         </label>
                     </p>
                     <label class="col-sm-2 control-label text-nowrap">Your Comments</label>
                     <p class="col-sm-10">
-                        <textarea class="form-control" rows="10" ng-model="newComment.comments"></textarea>
+                        <textarea class="form-control" 
+                                  rows="10" 
+                                  name="comments"
+                                  ng-model="newComment.comments" 
+                                  required>
+                        </textarea>
+                        <span ng-show="commentForm.comments.$error.required && commentForm.comments.$pristine" class="help-block">Please Enter Comments</span>
                     </p>
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn">Submit Comment</button>
+                        <button type="submit" 
+                                ng-disabled="commentForm.$invalid"
+                                class="btn">Submit Comment
+                        </button>
                     </div>
                 <!--     <p>Task 2: You need to validate that the user name and comments are entered</p>-->
                 </form>
