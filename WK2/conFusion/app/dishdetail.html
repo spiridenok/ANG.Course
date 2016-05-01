@@ -60,18 +60,10 @@
                     <blockquote ng-show="!commentForm.$pristine && !commentForm.$invalid">
                     <p>{{newComment.rating}} Stars</p>
                     <p>{{newComment.comment}}</p>
-<!--                    <footer>{{newComment.author}}, {{comments.date | date:'MMM. dd, y':'+8:00'}}</footer>-->
                     <footer>{{newComment.author}}</footer>
                     </blockquote>
                 </p>
-
-                    <!--<ul class="list-unstyled">
-						<p>Task 3: Here you include the code to show the live preview of the comment</p>
-						<p>The comment should be shown only when the form contains valid
-						information and is not pristine</p>
-                    </ul>-->
                 <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
-					<!--<p>Task 1: Design the form to submit the comments</p>-->
                     <label class="col-sm-2 control-label">Your Name</label>
                     <p class="col-sm-10" ng-class="{'has-error has-feedback' : commentForm.name.$invalid}">
                         <input type="text" 
@@ -88,8 +80,7 @@
                             <input type="radio" 
                                    name="rating" 
                                    ng-model="newComment.rating" 
-                                   value="{{i}}"/>
-                            {{i}}
+                                   value="{{i}}"/>{{i}}
                         </label>
                     </p>
                     <label class="col-sm-2 control-label text-nowrap">Your Comments</label>
