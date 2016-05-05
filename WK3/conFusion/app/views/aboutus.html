@@ -1,5 +1,4 @@
-
-    <div class="container" ng-controller="AboutController">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                <ul class="breadcrumb">
@@ -50,14 +49,22 @@
             </div>
         </div>
 
-
         <div class="row row-content">
             <div class="col-xs-12 col-sm-9">
                 <h2>Corporate Leadership</h2>
-               <ul class="media-list">
-					<h4>Implement the Corporate Leaders List here</h4>
-               </ul>
-
+                <div class="media" ng-repeat="lead in leaders">
+                    <div class="media-left media-middle">
+                        <img class="media-object img-thumbnail"
+                            ng-src={{lead.image}} alt="Uthappizza">
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            {{lead.name}}
+                            <span class="badge">{{lead.designation}}</span>
+                        </h2>
+                        <p>{{lead.description}}</p>
+                    </div>
+                </div>
             </div>
              <div class="col-xs-12 col-sm-3">
                 <p style="padding:20px;"></p>

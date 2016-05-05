@@ -246,7 +246,7 @@ angular.module('confusionApp')
 
             // the other named getLeader(index)
             corpfac.getLeader = function (index) {
-                return leadership(index);
+                return leadership[index];
             }
 
             // Remember this is a factory not a service
