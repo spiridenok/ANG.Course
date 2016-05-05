@@ -209,7 +209,7 @@ angular.module('confusionApp')
         .service('feedbackFactory', ['$resource', 'baseUrl', function ($resource, baseUrl) {
 
             this.sendFeedback = function () {
-                return $resource(baseUrl + 'feedback', null, { 'update': { method: 'POST' } });
+                return $resource(baseUrl + 'feedback', null);
             };
 
         }])

@@ -124,7 +124,7 @@ angular.module('confusionApp')
                 else {
                     $scope.invalidChannelSelection = false;
 
-                    feedbackFactory.sendFeedback().update($scope.feedback);
+                    feedbackFactory.sendFeedback().save($scope.feedback);
                     $scope.feedback = {
                         mychannel: "", firstName: "", lastName: "",
                         agree: false, email: ""
