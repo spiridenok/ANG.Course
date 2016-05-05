@@ -190,8 +190,6 @@ angular.module('confusionApp')
                 // that returns a selected promotion.
                 this.getPromotion = function () {
                     return $resource(baseUrl + 'promotions', null);
-                    //return $http.get(baseUrl + 'feedback/?id=' + '2')
-                    return $http.get(baseUrl + 'promotions/?id=' + '0')
                 }
         }])
 
@@ -201,7 +199,7 @@ angular.module('confusionApp')
 
             // Implement two functions, one named getLeaders,
             corpfac.getLeaders = function () {
-                return $resource(baseUrl + '/leadership', null);
+                return $resource(baseUrl + 'leadership', null);
             };
 
             // Remember this is a factory not a service

@@ -96,47 +96,28 @@ angular.module('confusionApp')
         // implement the IndexController and About Controller here
         .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function ($scope, menuFactory, corporateFactory) {
             $scope.dish = menuFactory.getDish(0);
-            $scope.showLeaderMenu = true;
+            $scope.showLeaderMenu = false;
             $scope.leaderErrorMessage = 'Loading...';
 
-            $scope.leader = {};
-            $scope.leader = corporateFactory.getLeaders().get().$promise.then(
+            corporateFactory.getLeaders().query(
                 function (response) {
-                    $scope.leader = response;
+                    $scope.leader = response[3];
                     $scope.showLeaderMenu = true;
                 },
                 function (response) {
                     $scope.leaderErrorMessage = "Error: " + response.status + " " + response.statusText;
-                    var a = 0;
-                });
-            //corporateFactory.getLeaders().get({ id: 0 }).$promise.then(
-            //    function (response) {
-            //        $scope.leader = response;
-            //        $scope.showLeaderMenu = true;
-            //    },
-            //    function (response) {
-            //        $scope.leaderErrorMessage = "Error: " + response.status + " " + response.statusText;
-            //        var a = 0;
-            //    });
+            });
 
             $scope.showPromotionMenu = false;
-            //$scope.promotion = menuFactory.getPromotion().get({id:0});
+            $scope.promotionErrorMessage = 'Loading...';
             menuFactory.getPromotion().query(
                 function (response) {
                     $scope.promotion = response[0];
                     $scope.showPromotionMenu = true;
                 },
                 function (response) {
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                });
-            //menuFactory.getPromotion().update().$promise.then(
-            //    function (response) {
-            //        $scope.promotion = response;
-            //        $scope.showPromotionMenu = true;
-            //    },
-            //    function (response) {
-            //        $scope.message = "Error: " + response.status + " " + response.statusText;
-            //    });
+                    $scope.promotionErrorMessage = "Error: " + response.status + " " + response.statusText;
+            });
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', function ($scope, corporateFactory) {
