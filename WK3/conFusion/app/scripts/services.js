@@ -240,10 +240,17 @@ angular.module('confusionApp')
             ];
      
             // Implement two functions, one named getLeaders,
+            corpfac.getLeaders = function () {
+                return leadership;
+            };
+
             // the other named getLeader(index)
+            corpfac.getLeader = function (index) {
+                return leadership(index);
+            }
+
             // Remember this is a factory not a service
-    
-    
+            return corpfac;    
         })
 
 ;
