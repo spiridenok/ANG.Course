@@ -2,7 +2,7 @@
 
 angular.module('confusionApp')
         .constant('baseUrl', 'http://localhost:3000/')
-        .service('menuFactory', ['$resource', 'baseUrl', '$http', function ($resource, baseUrl, $http) {
+        .service('menuFactory', ['$resource', 'baseUrl', function ($resource, baseUrl) {
     
             var dishes=[
                          {
@@ -188,7 +188,7 @@ angular.module('confusionApp')
     
                 // implement a function named getPromotion
                 // that returns a selected promotion.
-                this.getPromotion = function () {
+                this.getPromotions = function () {
                     return $resource(baseUrl + 'promotions', null);
                 }
         }])
@@ -209,7 +209,7 @@ angular.module('confusionApp')
         .service('feedbackFactory', ['$resource', 'baseUrl', function ($resource, baseUrl) {
 
             this.sendFeedback = function () {
-                return $resource(baseUrl + '/feedback', null, { 'update': { method: 'POST' } });
+                return $resource(baseUrl + 'feedback', null, { 'update': { method: 'POST' } });
             };
 
         }])
