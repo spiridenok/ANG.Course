@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('confusionApp')
-        .constant('baseUrl', 'http://localhost:3000')
-        .service('menuFactory', ['$resource', 'baseUrl', function ($resource, baseUrl) {
+        .constant('baseUrl', 'http://localhost:3000/')
+        .service('menuFactory', ['$resource', 'baseUrl', '$http', function ($resource, baseUrl, $http) {
     
             var dishes=[
                          {
@@ -189,7 +189,9 @@ angular.module('confusionApp')
                 // implement a function named getPromotion
                 // that returns a selected promotion.
                 this.getPromotion = function () {
-                    return $resource(baseUrl + '/promotions', null, { 'update': { method: 'PUT' } });
+                    return $resource(baseUrl + 'promotions', null);
+                    //return $http.get(baseUrl + 'feedback/?id=' + '2')
+                    return $http.get(baseUrl + 'promotions/?id=' + '0')
                 }
         }])
 
