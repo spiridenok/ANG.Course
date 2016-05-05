@@ -1,0 +1,13 @@
+E:\ANG.Course\bin\Microsoft.PythonTools.WebRole.dll
+E:\ANG.Course\obj\Debug\attach_server.py
+E:\ANG.Course\obj\Debug\visualstudio_py_debugger.py
+E:\ANG.Course\obj\Debug\visualstudio_py_repl.py
+E:\ANG.Course\obj\Debug\visualstudio_py_util.py
+E:\ANG.Course\obj\Debug\__init__.py
+E:\ANG.Course\obj\Debug\__main__.py
+E:\ANG.Course\bin\AzureSetup.cfg
+E:\ANG.Course\bin\Microsoft.PythonTools.AzureSetup.exe
+E:\ANG.Course\bin\Microsoft.PythonTools.AzureSetup.exe.config
+E:\ANG.Course\bin\wfastcgi.py
+E:\ANG.Course\obj\Debug\web.config
+E:\ANG.Course\obj\Debug\web.debug.config
