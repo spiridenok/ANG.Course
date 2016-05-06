@@ -79,9 +79,9 @@ angular.module('confusionApp')
             $scope.showLeaderMenu = false;
             $scope.leaderErrorMessage = 'Loading...';
 
-            corporateFactory.getLeaders().query(
+            corporateFactory.getLeaders().get({id:3}).$promise.then(
                 function (response) {
-                    $scope.leader = response[3];
+                    $scope.leader = response;
                     $scope.showLeaderMenu = true;
                 },
                 function (response) {
@@ -90,9 +90,9 @@ angular.module('confusionApp')
 
             $scope.showPromotionMenu = false;
             $scope.promotionErrorMessage = 'Loading...';
-            menuFactory.getPromotions().query(
+            menuFactory.getPromotions().get({ id: 0 }).$promise.then(
                 function (response) {
-                    $scope.promotion = response[0];
+                    $scope.promotion = response;
                     $scope.showPromotionMenu = true;
                 },
                 function (response) {
