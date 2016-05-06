@@ -97,7 +97,8 @@ angular.module('confusionApp')
                 },
                 function (response) {
                     $scope.promotionErrorMessage = "Error: " + response.status + " " + response.statusText;
-            });
+                }
+            );
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', function ($scope, corporateFactory) {
